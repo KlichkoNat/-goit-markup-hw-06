@@ -54,11 +54,42 @@
               <div class="box-container">                  
         <div class="averlay">
           <h1 class="preview">эффективные решения для вашего бизнеса</h1>
-          <div class="button-items">
+          <button class="button-items" data-modal-open="form">
             <a class="button" href="">Заказать услугу</a>
-        </div> </div>
+          </button> </div>
+          <form action="" class="form js-speaker-form" id="form">
+            <div class="x" data-modal-close>
+              <img src="./images/x.svg" alt="" />
+            </div>
+            <b class="form-name" data-modal="">
+              Оставьте свои данные, мы вам перезвоним
+            </b>
+          
+            <ul>
+              <li class="form-field">
+                <label for="name" class="form-label">Имя</label>
+                <input type="text" name="name" id="name" placeholder="" class="form-input" />
+              </li>
+              <li class="form-field">
+                <label for="tel" class="form-label">Телефон</label>
+                <input type="tel" name="tel" id="tel" class="form-input" />
+              </li>
+              <li class="form-field">
+                <label for="mail" class="form-label">Почта</label>
+                <input type="email" name="mail" id="mail" placeholder="" class="form-input" />
+              </li>
+              <li class="form-field">
+                <textarea name="coment" id="" cols="30" rows="10" placeholder="Комментарий"></textarea>
+              </li>
+            </ul>
+            <input type="checkbox" name="policy" id="policy" class="topic" />
+            <label for="policy">Соглашаюсь с рассылкой и принимаю
+              <a href="">Условия договора</a>
+            </label>
+            <button type="submit" class="submit">Отправить</button>
+          </form>
       </section>
-      <section>
+            <section>
         <div class="container-box">
         <h2 class="none">Преимущества нашей студии</h2>
         <ul class="box">
@@ -438,15 +469,27 @@
         </div>
         <div class="aside-list"> 
           <p class="list-items">Подпишитесь на рассылку</p>
-          </div>
-          <div >
-            <a  class="button-footer" href="">Подписаться</a>
+           <form class="input-list"> 
+            <label for="">
+              <input type="mail" name="e-mail" placeholder="E-mail" class="input"></label>
+              <button class="button-footer">
+              Подписаться</button>
+              </form>
           </div>
       </div>
-    <div class="aside">
-      <p class="aside-footer">2020 | Developed by GoIT Students</p>
-    </div>
       </div>
     </footer>
+    <script>
+      (() => {
+  document.querySelectorAll('.js-speaker-form').forEach(El => {
+    El.addEventListener('submit', e => {
+      e.preventDefault();
+      new FormData(e.currentTarget).forEach((value, name) => console.log(`${name}: ${value}`));
+      e.currentTarget.reset();
+    });
+  });
+})();
+    </script>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
