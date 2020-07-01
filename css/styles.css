@@ -903,12 +903,11 @@ h3 {
 textarea {
   resize: none;
 }
-is-hidden {
+.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 .call {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -920,43 +919,74 @@ is-hidden {
   position: absolute;
   width: 528px;
   padding-bottom: 40px;
+  padding-left: 41px;
   top: 0;
   left: 0;
-  text-align: center;
   background: #ffffff;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  transform: translateY(100%);
 }
 
 .form-field {
   display: flex;
+  width: 448px;
+  position: relative;
   flex-direction: column;
+  height: 40px;
 }
-.form-field label {
+.form-label {
+  position: absolute;
+  top: 25%;
+  left: 40px;
+  transform: translateY(-50%);
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.01em;
-  border-color: transparent;
-  box-shadow: transparent;
 
   color: #757575;
 }
-.form-field input {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  margin-left: 40px;
-  margin-right: 40px;
-  margin-bottom: 28px;
+
+.form-link {
+  color: #2196f3;
+  text-decoration: underline !important;
 }
-.form-field textarea {
+.form-field input {
+  width: 100%;
+  margin-bottom: 28px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+}
+.form-input:focus + .form-label {
+  color: #2196f3;
+  transform: translateY(-25px);
+}
+.form-input:focus {
+  border: 1px solid #2196f3;
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  color: #2196f3;
+  transform: translateY(-27px);
+  left: 20px;
+  transition: transform 250ms linear;
+}
+.form-input:hover {
+  border: 1px solid #2196f3;
+}
+.form-textarea:focus textarea {
+  border: 1px solid #2196f3;
+}
+.form-textarea {
   width: 448px;
-  margin-left: 40px;
-  margin-right: 40px;
   margin-bottom: 20px;
+}
+textarea {
+  width: 100%;
 }
 .topic [type='checkbox'] {
   width: 16px;
@@ -969,16 +999,18 @@ is-hidden {
 .form-name {
   display: inline-block;
   margin-top: 40px;
+  margin-bottom: 30px;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 23px;
-  text-align: center;
   letter-spacing: 0.03em;
 
   color: #212121;
 }
 .submit {
+  display: inline-block;
+  margin-left: 124px;
   width: 200px;
   padding: 10px 55px;
   background: #2196f3;
@@ -996,4 +1028,26 @@ is-hidden {
   padding: 9px 9px;
   background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.icon-field {
+  position: absolute;
+  top: 2px;
+  left: 19px;
+  display: inline-block;
+}
+.icon-field svg {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+}
+.form-input:focus ~ .icon-field svg {
+  fill: #2196f3;
+}
+.icon-close svg {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+}
+.icon-close:hover {
+  fill: #2196f3;
 }
